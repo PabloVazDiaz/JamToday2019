@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     private CapsuleCollider2D collider;
     public bool isAbleToFire;
     public GameObject StartPoint;
-    public float damage;
+    public int damage;
     public float speed;
     public float reuse;
     public float explosionArea = 0;

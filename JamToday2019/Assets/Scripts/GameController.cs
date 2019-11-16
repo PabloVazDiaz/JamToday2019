@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,11 +8,19 @@ public class GameController : MonoBehaviour
     public float pastic;
     public int LevelNumber;
     public List<LevelData> levels;
-
+    public static GameController instance;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (GameController.instance == null)
+        {
+            GameController.instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
         LoadLevel(0);
     }
 
@@ -28,7 +37,12 @@ public class GameController : MonoBehaviour
         LevelData Data = levels[LevelIndex];
         foreach (Enemy enemy in Data.Enemies)
         {
-            Instantiate(enemy.gameObject, SpawnPoints[Random.Range(0, SpawnPoints.Count)].transform);
+            Instantiate(enemy.gameObject, SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count)].transform);
         }
+    }
+
+    internal void GameOver()
+    {
+        throw new NotImplementedException();
     }
 }

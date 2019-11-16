@@ -9,7 +9,7 @@ public class PlayerInput : MonoBehaviour
     private bool isAbleToFire = true;
     private float HorizontalAxis;
     private float VerticalAxis;
-    private PlayerMovement playerMovement;
+    private PlayerController playerMovement;
     public Transform FirePoint;
     public Camera cam;
     public Projectile projectile;
@@ -19,7 +19,7 @@ public class PlayerInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame

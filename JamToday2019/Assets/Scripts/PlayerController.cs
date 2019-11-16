@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+
     Rigidbody2D rb;
     public float speed;
+    public int health = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +33,15 @@ public class PlayerMovement : MonoBehaviour
         Vector2 lookDir = camPos - rb.position;
         float angle = Mathf.Atan2(camPos.y, camPos.x) * Mathf.Rad2Deg -90f;
         rb.rotation = angle;
+    }
+
+    public void GetDamaged( int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+            //GameController.instance.GameOver();
+        }
     }
 }
