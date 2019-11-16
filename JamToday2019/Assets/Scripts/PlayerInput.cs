@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-
+    private float timeLastShoot;
+    private bool isAbleToFire = true;
     private float HorizontalAxis;
     private float VerticalAxis;
     private PlayerMovement playerMovement;
+    public Transform FirePoint;
     public Camera cam;
-    public GameObject projectile;
-    public GameObject FirePoint;
+    public Projectile projectile;
 
     Vector2 camPos;
 
@@ -29,7 +30,7 @@ public class PlayerInput : MonoBehaviour
         //print($"Horizontal= {HorizontalAxis}, vertical = {VerticalAxis}");
         camPos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && isAbleToFire)
         {
             Fire();
         }
@@ -38,7 +39,11 @@ public class PlayerInput : MonoBehaviour
 
     private void Fire()
     {
-        Instantiate(projectile, FirePoint.transform.position, FirePoint.transform.rotation);
+        GameObject bullet =Instantiate(projectile.gameObject, FirePoint.position, FirePoint.rotation);
+
+        bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.up * projectile.speed, ForceMode2D.Impulse);
+
+
     }
 
     private void FixedUpdate()

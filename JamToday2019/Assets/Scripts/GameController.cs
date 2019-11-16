@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public float pastic;
+    public int LevelNumber;
+
+
+
     // Start is called before the first frame update
     void Start()
     {

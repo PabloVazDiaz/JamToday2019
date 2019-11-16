@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
 {
+    private CapsuleCollider2D collider;
+    public bool isAbleToFire;
     public GameObject StartPoint;
     public float damage;
     public float speed;
@@ -17,7 +19,18 @@ public class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-        rb.AddForce(StartPoint.transform.up * speed, ForceMode2D.Impulse);
+        Destroy(this.gameObject, 3f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.tag == "Enemy")
+        {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy?.ReceiveDamage(damage);
+            Destroy(this.gameObject);
+        }
     }
 
     // Update is called once per frame
