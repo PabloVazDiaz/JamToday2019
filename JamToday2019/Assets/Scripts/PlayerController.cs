@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public static PlayerController instance;
+    //public PlayerController initialPlayer = new PlayerController { speed = 2f, health = 1 };
+        
     Rigidbody2D rb;
     public float speed;
     public int health = 1;
@@ -13,6 +15,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (PlayerController.instance == null)
+        {
+            PlayerController.instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
     // Update is called once per frame
@@ -38,10 +48,20 @@ public class PlayerController : MonoBehaviour
     public void GetDamaged( int damage)
     {
         health -= damage;
+        BeInvulnerable();
         if (health <= 0)
         {
             Destroy(this.gameObject);
             //GameController.instance.GameOver();
         }
+    }
+
+    private void BeInvulnerable()
+    {
+        //animation
+
+        //disableCollider
+
+        throw new NotImplementedException();
     }
 }

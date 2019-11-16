@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public float pastic;
+    public float plastic;
     public int LevelNumber;
     public List<LevelData> levels;
     public static GameController instance;

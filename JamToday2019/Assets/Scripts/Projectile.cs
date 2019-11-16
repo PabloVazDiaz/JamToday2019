@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
@@ -11,7 +12,7 @@ public class Projectile : MonoBehaviour
     public int damage;
     public float speed;
     public float reuse;
-    public float explosionArea = 0;
+    public float explosionArea = 40f;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -24,14 +25,29 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if (collision.tag == "Enemy")
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemy?.ReceiveDamage(damage);
             Destroy(this.gameObject);
         }
+
+        /*AOE
+        List<Collider2D> enemies = new List<Collider2D>();
+        enemies.AddRange(Physics2D.OverlapCircleAll(transform.position, explosionArea));
+        if (enemies.Where(x=>x.tag=="Enemy").ToList().Count>0)
+        {
+            foreach (Collider2D collider in enemies.Where(x => x.tag == "Enemy").ToList())
+            {
+                Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+                enemy?.ReceiveDamage(damage);
+            }
+            Destroy(this.gameObject);
+        }
+        */
+
     }
+
 
     // Update is called once per frame
     void Update()

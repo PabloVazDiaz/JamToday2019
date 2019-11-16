@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91d7c6df648fc44ab696f67333b2dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pastic: 0
+  plastic: 0
   LevelNumber: 0
   levels:
   - {fileID: 11400000, guid: 6b36959d193da924c8ad7ac68adc34d7, type: 2}
@@ -207,7 +207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &627517817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -396,6 +396,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 837488136898972443, guid: b8979964869796541a271df37541f727,
+        type: 3}
+      propertyPath: m_Name
+      value: Bandido
+      objectReference: {fileID: 0}
     - target: {fileID: -7955215243089175113, guid: b8979964869796541a271df37541f727,
         type: 3}
       propertyPath: endReachedDistance
@@ -406,11 +411,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 982695747}
-    - target: {fileID: 837488136898972443, guid: b8979964869796541a271df37541f727,
-        type: 3}
-      propertyPath: m_Name
-      value: Bandido
-      objectReference: {fileID: 0}
     - target: {fileID: 837488136898972447, guid: b8979964869796541a271df37541f727,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -827,6 +827,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435436134905961782, guid: cf6e5acafb8f39a468fc03110aacc1e4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435436134905961782, guid: cf6e5acafb8f39a468fc03110aacc1e4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435436134905961782, guid: cf6e5acafb8f39a468fc03110aacc1e4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4435436134905961780, guid: cf6e5acafb8f39a468fc03110aacc1e4,
         type: 3}

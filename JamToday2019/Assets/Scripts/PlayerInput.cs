@@ -13,6 +13,7 @@ public class PlayerInput : MonoBehaviour
     public Transform FirePoint;
     public Camera cam;
     public Projectile projectile;
+    
 
     Vector2 camPos;
 
