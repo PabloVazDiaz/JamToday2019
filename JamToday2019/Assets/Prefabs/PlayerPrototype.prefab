@@ -103,7 +103,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fa48c55ef38dc4c49a9ba690fcaa4e84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0d2ea401beca6d4db9bf50507060822, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcd1642da3606941b4f9f25af43a00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirePoint: {fileID: 4435436134802974064}
-  cam: {fileID: 7023352561274507002, guid: e40e0bae9e06316498ecbc9559c93481, type: 3}
+  FirePoint: {fileID: 4435436134802974067}
+  cam: {fileID: 0}
   projectile: {fileID: 5418526199069297276, guid: e91e30478c29ee64d805ce6b14ae376d,
     type: 3}
 --- !u!114 &4435436134905961781
