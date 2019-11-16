@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     internal void Rotate(Vector2 camPos)
     {
         Vector2 lookDir = camPos - rb.position;
-        float angle = Mathf.Atan2(camPos.y, camPos.x) * Mathf.Rad2Deg -90f;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg -90f;
         rb.rotation = angle;
     }
 
