@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
     //public PlayerController initialPlayer = new PlayerController { speed = 2f, health = 1 };
-        
+
+    bool isInvulnerable;
     Rigidbody2D rb;
     public float speed;
     public int health = 1;
@@ -47,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
     public void GetDamaged( int damage)
     {
+        if (isInvulnerable)
+            return;
         health -= damage;
         BeInvulnerable();
         if (health <= 0)
@@ -58,10 +61,22 @@ public class PlayerController : MonoBehaviour
 
     private void BeInvulnerable()
     {
+        isInvulnerable = true;
         //animation
-
+        StartCoroutine(BlinkSprite());
         //disableCollider
 
         //throw new NotImplementedException();
+    }
+
+    private IEnumerator BlinkSprite()
+    {
+        SpriteRenderer sprite=GetComponentInChildren<SpriteRenderer>();
+        for (int i = 0; i < 6; i++)
+        {
+            sprite.enabled = !sprite.enabled;
+            yield return new WaitForSeconds(0.25f);
+        }
+        isInvulnerable = false;
     }
 }

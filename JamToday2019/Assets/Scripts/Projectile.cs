@@ -34,6 +34,10 @@ public class Projectile : MonoBehaviour
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
             player?.GetDamaged(damage);
         }
+        if (collision.tag == "AttackZone")
+        {
+            return;
+        }
         Destroy(this.gameObject);
 
         /*AOE

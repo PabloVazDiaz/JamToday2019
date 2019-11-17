@@ -132,8 +132,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPlayer: {fileID: 0}
+  InitialHitPoints: 1
+  damagedSprite: {fileID: 21300000, guid: fb447d8fe5fe5804b8e22286df11f3f5, type: 3}
   HitPoints: 1
   AttackDamage: 1
+  Boss: 0
+  BossHealth: {fileID: 0}
 --- !u!61 &837488136898972440
 BoxCollider2D:
   m_ObjectHideFlags: 0
