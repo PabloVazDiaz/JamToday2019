@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 7646418039859742745}
   - component: {fileID: 777076951}
   m_Layer: 0
-  m_Name: Slime
+  m_Name: "Slime peque\xF1o"
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ Transform:
   m_GameObject: {fileID: 4315321760655819749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 5}
   m_Children:
   - {fileID: 4036417667303238603}
   - {fileID: 288892069}
@@ -208,7 +208,7 @@ MonoBehaviour:
   AttackDamage: 1
   Boss: 0
   BossHealth: {fileID: 0}
-  Child: {fileID: 4315321760655819749, guid: d3ff08b26f1a01142983f304937056a5, type: 3}
+  Child: {fileID: 0}
 --- !u!50 &8879156961754723840
 Rigidbody2D:
   serializedVersion: 4

@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public bool Boss;
     public Image BossHealth;
     private bool isInvencible=false;
+    public GameObject Child;
     Sprite originalSprite;
 
     // Start is called before the first frame update
@@ -54,6 +55,14 @@ public class Enemy : MonoBehaviour
         }
         if (HitPoints <= 0)
         {
+            if (Child != null)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    GameObject go = Instantiate(Child, transform.position, transform.rotation);
+                    go.transform.parent = null;
+                }
+            }
             Die();
         }
     }
