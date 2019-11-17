@@ -10,16 +10,18 @@ public class Enemy : MonoBehaviour
 {
     public  PlayerController TargetPlayer;
     public float InitialHitPoints = 1;
-    
+    public Sprite damagedSprite;
     public float HitPoints = 1;
     public int AttackDamage = 1;
     public bool Boss;
     public Image BossHealth;
     private bool isInvencible=false;
+    Sprite originalSprite;
 
     // Start is called before the first frame update
     void Start()
     {
+        originalSprite = GetComponentInChildren<SpriteRenderer>().sprite;
         HitPoints = InitialHitPoints;
         if (Boss)
             BossHealth.gameObject.SetActive(true);
@@ -36,6 +38,10 @@ public class Enemy : MonoBehaviour
 
     public virtual void ReceiveDamage(int damage)
     {
+        if (damagedSprite != null)
+        {
+            StartCoroutine(DamageAnimation());
+        }
         if (isInvencible)
             return;
         HitPoints -= damage;
@@ -50,6 +56,14 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+    }
+
+    private IEnumerator DamageAnimation()
+    {
+        originalSprite = GetComponentInChildren<SpriteRenderer>().sprite;
+        GetComponentInChildren<SpriteRenderer>().sprite = damagedSprite;
+        yield return new WaitForSeconds(0.5f);
+        GetComponentInChildren<SpriteRenderer>().sprite = originalSprite;
     }
 
     private void SummonEnemies()
