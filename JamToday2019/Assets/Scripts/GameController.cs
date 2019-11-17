@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GameController : MonoBehaviour
     public List<GameObject> enemies;
     public static GameController instance;
     public GameObject PausePanel;
+    public GameObject ShopPanel;
     private bool paused = false;
 
     // Start is called before the first frame update
@@ -25,6 +27,7 @@ public class GameController : MonoBehaviour
             Destroy(this);
         }
         LoadLevel(0);
+        OpenShop();
     }
 
     internal void Victory()
@@ -60,6 +63,19 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public List<Image> hearts = new List<Image>();
+    public GameObject heartPanel;
+    public void UpdateLifeCanvas()
+    {
+        foreach (Image sprite in hearts)
+        {
+            sprite.gameObject.SetActive(false);
+        }
+        for (int i = 0; i < PlayerController.instance.health; i++)
+        {
+            hearts[i].gameObject.SetActive(true);
+        }
+    }
     internal void Pause()
     {
         
@@ -76,6 +92,16 @@ public class GameController : MonoBehaviour
             paused = !paused;
     }
 
+    public void OpenShop()
+    {
+        ShopPanel.SetActive(true);
+        Pause();
+    }
+    public void CloseShop()
+    {
+        ShopPanel.SetActive(false);
+        Pause();
+    }
     internal void GameOver()
     {
         throw new NotImplementedException();

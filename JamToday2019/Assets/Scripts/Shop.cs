@@ -16,6 +16,7 @@ public class Shop : MonoBehaviour
         {
             PlayerController.instance.health += 1;
             GameController.instance.plastic += HealthPrice;
+            GameController.instance.UpdateLifeCanvas();
         }
     }
 
@@ -25,6 +26,7 @@ public class Shop : MonoBehaviour
         {
             PlayerController.instance.health -= 1;
             GameController.instance.plastic -= HealthPrice;
+            GameController.instance.UpdateLifeCanvas();
         }
     }
 

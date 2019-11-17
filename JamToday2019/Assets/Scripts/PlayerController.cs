@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //GameController.instance.UpdateLifeCanvas();
         rb = GetComponent<Rigidbody2D>();
         if (PlayerController.instance == null)
         {
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
         if (isInvulnerable)
             return;
         health -= damage;
+        GameController.instance.UpdateLifeCanvas();
         BeInvulnerable();
         if (health <= 0)
         {
