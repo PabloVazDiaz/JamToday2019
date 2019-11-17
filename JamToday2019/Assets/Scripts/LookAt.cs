@@ -8,6 +8,11 @@ public class LookAt : MonoBehaviour
     public GameObject Target;
     public Rigidbody2D rb;
 
+    private void Start()
+    {
+        Target = GameObject.FindGameObjectWithTag("Player");
+    }
+
     // Update is called once per frame
     void Update()
     {

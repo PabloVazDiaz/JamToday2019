@@ -29,6 +29,11 @@ public class Projectile : MonoBehaviour
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemy?.ReceiveDamage(damage);
         }
+        if (collision.tag == "Player")
+        {
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            player?.GetDamaged(damage);
+        }
         Destroy(this.gameObject);
 
         /*AOE

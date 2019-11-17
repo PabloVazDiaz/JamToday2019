@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 4126005253910411521}
   - component: {fileID: 4126005253910411527}
   - component: {fileID: 4126005253910411526}
+  - component: {fileID: 6494178726628122962}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -263,8 +264,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPlayer: {fileID: 0}
+  InitialHitPoints: 1
   HitPoints: 100
   AttackDamage: 1
+  Boss: 1
+  BossHealth: {fileID: 0}
 --- !u!114 &4126005253910411527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +276,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4126005253910411523}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7b02b550d55a5c4b9d12c042c4ffc69, type: 3}
   m_Name: 
@@ -290,7 +294,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4126005253910411523}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7b02b550d55a5c4b9d12c042c4ffc69, type: 3}
   m_Name: 
@@ -301,3 +305,19 @@ MonoBehaviour:
   - {fileID: 7300026465408436259, guid: 2bc93235332bb504ea5507255bb05fa4, type: 3}
   FirePoint: {fileID: 4126005252484052361}
   ShootCoolDown: 0
+--- !u!70 &6494178726628122962
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4126005253910411523}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2186034, y: 0}
+  m_Size: {x: 0.93720734, y: 1}
+  m_Direction: 0

@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     public float plastic;
     public int LevelNumber;
     public List<LevelData> levels;
-    public List<Enemy> enemies;
+    public List<GameObject> enemies;
     public static GameController instance;
     public GameObject PausePanel;
     private bool paused = false;
@@ -35,18 +35,28 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(enemies.Count <= 0)
+        {
+            NextLevel();
+        }
+    }
+
+    private void NextLevel()
+    {
+       // throw new NotImplementedException();
     }
 
     public void LoadLevel(int LevelIndex)
     {
+        if (LevelIndex >= levels.Count)
+            Victory();
         List<GameObject> SpawnPoints = new List<GameObject>();
         SpawnPoints.AddRange(GameObject.FindGameObjectsWithTag("SpawnPoint"));
         LevelData Data = levels[LevelIndex];
         foreach (Enemy enemy in Data.Enemies)
         {
-            Instantiate(enemy.gameObject, SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count)].transform);
-            GameController.instance.enemies.Add(enemy);
+            GameObject go = Instantiate(enemy.gameObject, SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count)].transform);
+            GameController.instance.enemies.Add(go);
         }
     }
 

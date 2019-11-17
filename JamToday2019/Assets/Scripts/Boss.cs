@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Boss : Enemy
 {
-
+    /*
     public bool isInvencible;
 
     // Start is called before the first frame update
@@ -42,5 +42,5 @@ public class Boss : Enemy
     {
         base.Die();
         GameController.instance.Victory();
-    }
+    }*/
 }
