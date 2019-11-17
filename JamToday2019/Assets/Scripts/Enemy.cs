@@ -25,7 +25,10 @@ public class Enemy : MonoBehaviour
         originalSprite = GetComponentInChildren<SpriteRenderer>().sprite;
         HitPoints = InitialHitPoints;
         if (Boss)
+        {
             BossHealth.gameObject.SetActive(true);
+            HitPoints += GameController.instance.plastic / 50;
+        }
         TargetPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if(GetComponent<AIDestinationSetter>()!=null)
             GetComponent<AIDestinationSetter>().target = TargetPlayer.transform;

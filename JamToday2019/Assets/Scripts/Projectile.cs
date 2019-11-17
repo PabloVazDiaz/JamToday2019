@@ -51,6 +51,10 @@ public class Projectile : MonoBehaviour
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
                 enemy?.ReceiveDamage(damage);
             }
+            if (collision.tag == "Shield")
+            {
+                return;
+            }
         }
         if(target == Target.Player)
         {
