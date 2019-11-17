@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     public float speed = 3;
     public int health = 1;
+    public float ShootCD=2;
+    public int ShootCDBuys = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +28,22 @@ public class PlayerController : MonoBehaviour
         }
         PlayerController.instance.health= health;
         PlayerController.instance.speed = speed;
+        PlayerController.instance.ShootCD = ShootCD;
+        PlayerController.instance.ShootCDBuys = ShootCDBuys;
         GameController.instance.UpdateLifeCanvas();
         GameController.instance.UpdateSpeedCanvas();
+        GameController.instance.UpdateCDCanvas();
     }
-
+    void ResetPlayer()
+    {
+        PlayerController.instance.health = 1;
+        PlayerController.instance.speed = 2;
+        PlayerController.instance.ShootCD = ShootCD;
+        PlayerController.instance.ShootCDBuys = 1;
+        GameController.instance.UpdateLifeCanvas();
+        GameController.instance.UpdateSpeedCanvas();
+        GameController.instance.UpdateCDCanvas();
+    }
     // Update is called once per frame
     void Update()
     {

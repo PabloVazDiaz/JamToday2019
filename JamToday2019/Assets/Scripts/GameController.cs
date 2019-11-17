@@ -49,6 +49,7 @@ public class GameController : MonoBehaviour
         }
     }
 
+
     private void NextLevel()
     {
        // throw new NotImplementedException();
@@ -56,6 +57,7 @@ public class GameController : MonoBehaviour
 
     public void LoadLevel(int LevelIndex)
     {
+        
         if (LevelIndex >= levels.Count)
             Victory();
         List<GameObject> SpawnPoints = new List<GameObject>();
@@ -91,6 +93,18 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < PlayerController.instance.speed/2; i++)
         {
             lighting[i].gameObject.SetActive(true);
+        }
+    }
+    public List<Image> bullets = new List<Image>();
+    public void UpdateCDCanvas()
+    {
+        foreach (Image sprite in bullets)
+        {
+            sprite.gameObject.SetActive(false);
+        }
+        for (int i = 0; i < PlayerController.instance.ShootCDBuys; i++)
+        {
+            bullets[i].gameObject.SetActive(true);
         }
     }
 

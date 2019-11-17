@@ -53,5 +53,31 @@ public class Shop : MonoBehaviour
             GameController.instance.plastic -= SpeedPrice;
             GameController.instance.UpdateSpeedCanvas();
         }
+    } 
+    [Header("CoolDown")]
+    public int CDPrice;
+    public Text CDPriceText;
+    public Text CDAmount;
+
+    public void BuyCD()
+    {
+        if (PlayerController.instance.ShootCDBuys < 6)
+        {
+            PlayerController.instance.ShootCD -= 0.35f;
+            PlayerController.instance.ShootCDBuys += 1;
+            GameController.instance.plastic += CDPrice;
+            GameController.instance.UpdateCDCanvas();
+        }
+    }
+
+    public void SellCD()
+    {
+        if (PlayerController.instance.ShootCDBuys < 1)
+        {
+            PlayerController.instance.ShootCD += 0.35f;
+            PlayerController.instance.ShootCDBuys -= 1;
+            GameController.instance.plastic += CDPrice;
+            GameController.instance.UpdateCDCanvas();
+        }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    private float timeLastShoot;
+    private float timeLastShoot = 0;
     private bool isAbleToFire = true;
     private float HorizontalAxis;
     private float VerticalAxis;
@@ -30,7 +30,8 @@ public class PlayerInput : MonoBehaviour
         VerticalAxis = Input.GetAxisRaw("Vertical");
         //print($"Horizontal= {HorizontalAxis}, vertical = {VerticalAxis}");
         camPos = cam.ScreenToWorldPoint(Input.mousePosition);
-
+        timeLastShoot += Time.deltaTime;
+        isAbleToFire = (timeLastShoot > PlayerController.instance.ShootCD);
         if (Input.GetButtonDown("Fire1") && isAbleToFire)
         {
             Fire();
@@ -44,6 +45,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Fire()
     {
+        timeLastShoot = 0;
         GameObject bullet =Instantiate(projectile.gameObject, FirePoint.position, FirePoint.rotation);
 
         bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.up * projectile.speed, ForceMode2D.Impulse);
