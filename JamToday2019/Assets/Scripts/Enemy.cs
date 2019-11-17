@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Die()
     {
+        GameController.instance.enemies.RemoveAt( GameController.instance.enemies.IndexOf(this));
         Destroy(this.gameObject);
     }
 }

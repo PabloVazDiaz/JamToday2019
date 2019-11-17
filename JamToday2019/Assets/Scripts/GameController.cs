@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     public float plastic;
     public int LevelNumber;
     public List<LevelData> levels;
+    public List<Enemy> enemies;
     public static GameController instance;
     public GameObject PausePanel;
     private bool paused = false;
@@ -45,6 +46,7 @@ public class GameController : MonoBehaviour
         foreach (Enemy enemy in Data.Enemies)
         {
             Instantiate(enemy.gameObject, SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count)].transform);
+            GameController.instance.enemies.Add(enemy);
         }
     }
 
