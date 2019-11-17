@@ -26,8 +26,14 @@ public class Enemy : MonoBehaviour
         HitPoints = InitialHitPoints;
         if (Boss)
         {
+            BossHealth = GameController.instance.HealthBoss.GetComponent<Image>();
             BossHealth.gameObject.SetActive(true);
-            HitPoints += GameController.instance.plastic / 50;
+            HitPoints += GameController.instance.plastic / 100;
+            Shooting[] shooters = GetComponentsInChildren<Shooting>();
+            foreach (Shooting shooter in shooters)
+            {
+                shooter.ShootCoolDown -= Mathf.Clamp01(GameController.instance.plastic * 0.01f);
+            }
         }
         TargetPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if(GetComponent<AIDestinationSetter>()!=null)
@@ -51,11 +57,13 @@ public class Enemy : MonoBehaviour
         HitPoints -= damage;
         if (Boss)
             BossHealth.fillAmount = HitPoints / InitialHitPoints;
+        
         if(Boss && HitPoints % 10 == 0)
         {
-            isInvencible = true;
+            //isInvencible = true;
             SummonEnemies();
         }
+        
         if (HitPoints <= 0)
         {
             if (Child != null)
@@ -77,10 +85,16 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         GetComponentInChildren<SpriteRenderer>().sprite = originalSprite;
     }
-
+    public Enemy[] enemiesToSpawn;
+    public GameObject[] SpawnPoints;
+    
     private void SummonEnemies()
     {
         //throw new NotImplementedException();
+        foreach (Enemy enemy in enemiesToSpawn)
+        {
+            Instantiate(enemy.gameObject, SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count())].transform);
+        }
     }
 
     public virtual void Die()

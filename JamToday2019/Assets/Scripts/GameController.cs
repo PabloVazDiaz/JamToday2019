@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public float plastic;
-    public int LevelNumber;
+    public int LevelNumber = 1;
     public List<LevelData> levels;
     public List<GameObject> enemies;
     public static GameController instance;
     public GameObject PausePanel;
     public GameObject ShopPanel;
+    public GameObject HealthBoss;
     private bool paused = false;
 
 
@@ -26,12 +28,13 @@ public class GameController : MonoBehaviour
         {
             Destroy(this);
         }
+        GameController.instance.LevelNumber = SceneManager.GetActiveScene().buildIndex;
     }
     // Start is called before the first frame update
     void Start()
     {
         
-        LoadLevel(0);
+        LoadLevel(GameController.instance.LevelNumber-1);
         OpenShop();
     }
 
@@ -52,6 +55,11 @@ public class GameController : MonoBehaviour
 
     private void NextLevel()
     {
+        if(GameController.instance.LevelNumber <= GameController.instance.levels.Count)
+        {
+            GameController.instance.LevelNumber++;
+            SceneManager.LoadSceneAsync(GameController.instance.LevelNumber);
+        }
        // throw new NotImplementedException();
     }
 
