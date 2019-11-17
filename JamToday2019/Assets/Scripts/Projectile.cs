@@ -51,10 +51,6 @@ public class Projectile : MonoBehaviour
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
                 enemy?.ReceiveDamage(damage);
             }
-            if (collision.tag == "Shield")
-            {
-                return;
-            }
         }
         if(target == Target.Player)
         {
@@ -62,6 +58,13 @@ public class Projectile : MonoBehaviour
             {
                 PlayerController player = collision.gameObject.GetComponent<PlayerController>();
                 player?.GetDamaged(damage);
+            }
+            if (collision.tag == "Shield")
+            {
+                return;
+            }if (collision.tag == "Untagged")
+            {
+                return;
             }
         }
 

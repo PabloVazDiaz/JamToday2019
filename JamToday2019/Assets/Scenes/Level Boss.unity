@@ -6593,6 +6593,10 @@ PrefabInstance:
       propertyPath: playerToFollow
       value: 
       objectReference: {fileID: 575214529}
+    - target: {fileID: 192637837, guid: e40e0bae9e06316498ecbc9559c93481, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 990ecc32e592aa24489331e4fd98ae21, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e40e0bae9e06316498ecbc9559c93481, type: 3}
 --- !u!114 &262931384 stripped
@@ -39931,6 +39935,10 @@ PrefabInstance:
     - target: {fileID: 7002017704773759601, guid: f26a8aa13b170b84ebce88da1234751d,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 508321486, guid: f26a8aa13b170b84ebce88da1234751d, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 508321488, guid: f26a8aa13b170b84ebce88da1234751d, type: 3}

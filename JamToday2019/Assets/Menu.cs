@@ -42,10 +42,17 @@ public class Menu : MonoBehaviour
         }
         clicks++;
     }
-
+    public GameObject CreditsPanel;
     public void Credits()
     {
+        StartCoroutine(ShowCredits());
+    }
 
+    IEnumerator ShowCredits()
+    {
+        CreditsPanel.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        CreditsPanel.SetActive(false);
     }
 
     public void Exit()

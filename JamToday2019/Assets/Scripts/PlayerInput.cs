@@ -28,6 +28,10 @@ public class PlayerInput : MonoBehaviour
     {
         HorizontalAxis = Input.GetAxisRaw("Horizontal");
         VerticalAxis = Input.GetAxisRaw("Vertical");
+        if(VerticalAxis==0&& HorizontalAxis ==0)
+        {
+            playerMovement.Move(0,0);
+        }
         //print($"Horizontal= {HorizontalAxis}, vertical = {VerticalAxis}");
         camPos = cam.ScreenToWorldPoint(Input.mousePosition);
         timeLastShoot += Time.deltaTime;

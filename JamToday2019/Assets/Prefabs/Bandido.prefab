@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539636558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.023, y: 0.331, z: 0}
+  m_LocalPosition: {x: -0.008, y: 0.368, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 837488136898972447}
@@ -132,12 +132,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPlayer: {fileID: 0}
-  InitialHitPoints: 1
+  InitialHitPoints: 2
   damagedSprite: {fileID: 21300000, guid: fb447d8fe5fe5804b8e22286df11f3f5, type: 3}
-  HitPoints: 1
+  HitPoints: 2
   AttackDamage: 1
   Boss: 0
   BossHealth: {fileID: 0}
+  Child: {fileID: 0}
+  enemiesToSpawn: []
+  SpawnPoints: []
 --- !u!61 &837488136898972440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -275,8 +278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b02b550d55a5c4b9d12c042c4ffc69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectiles: []
-  FirePoint: {fileID: 0}
+  projectiles:
+  - {fileID: 5418526199069297276, guid: b00174c9b31d4ac4a9105daf436eeaf7, type: 3}
+  FirePoint: {fileID: 539636559}
   ShootCoolDown: 2
 --- !u!114 &4484726518389663592
 MonoBehaviour:

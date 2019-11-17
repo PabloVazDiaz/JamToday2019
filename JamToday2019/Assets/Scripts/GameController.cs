@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
 
     internal void Victory()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     // Update is called once per frame
@@ -144,8 +144,10 @@ public class GameController : MonoBehaviour
         ShopPanel.SetActive(false);
         Pause();
     }
+
+    public GameObject GameOverScreen;
     internal void GameOver()
     {
-        throw new NotImplementedException();
+        SceneManager.LoadScene(0);
     }
 }
