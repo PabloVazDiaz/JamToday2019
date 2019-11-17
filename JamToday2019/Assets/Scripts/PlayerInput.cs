@@ -35,6 +35,10 @@ public class PlayerInput : MonoBehaviour
         {
             Fire();
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameController.instance.Pause();
+        }
 
     }
 

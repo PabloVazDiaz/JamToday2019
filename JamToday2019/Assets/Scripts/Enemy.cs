@@ -7,13 +7,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public  PlayerController TargetPlayer;
-    int HitPoints = 1;
+    public int HitPoints = 1;
     public int AttackDamage = 1;
     // Start is called before the first frame update
     void Start()
     {
         TargetPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        GetComponent<AIDestinationSetter>().target = TargetPlayer.transform;
+        if(GetComponent<AIDestinationSetter>()!=null)
+            GetComponent<AIDestinationSetter>().target = TargetPlayer.transform;
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class Enemy : MonoBehaviour
        // transform.LookAt(TargetPlayer.transform.position, transform.forward);
     }
 
-    public void ReceiveDamage(int damage)
+    public virtual void ReceiveDamage(int damage)
     {
         HitPoints -= damage;
         if (HitPoints <= 0)
@@ -31,7 +32,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    public virtual void Die()
     {
         Destroy(this.gameObject);
     }
