@@ -6,13 +6,12 @@ using System.Linq;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
 {
-    private CapsuleCollider2D collider;
-    public bool isAbleToFire;
-    public GameObject StartPoint;
+
     public int damage;
     public float speed;
     public float reuse;
     public float explosionArea = 40f;
+    public float apperture = 0;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -29,8 +28,8 @@ public class Projectile : MonoBehaviour
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemy?.ReceiveDamage(damage);
-            Destroy(this.gameObject);
         }
+        Destroy(this.gameObject);
 
         /*AOE
         List<Collider2D> enemies = new List<Collider2D>();

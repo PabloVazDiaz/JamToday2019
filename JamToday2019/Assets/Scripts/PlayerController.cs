@@ -62,6 +62,6 @@ public class PlayerController : MonoBehaviour
 
         //disableCollider
 
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 }
