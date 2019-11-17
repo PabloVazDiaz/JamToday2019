@@ -126,11 +126,13 @@ public class GameController : MonoBehaviour
 
     public void OpenShop()
     {
+        GetComponent<AudioSource>().enabled = false;
         ShopPanel.SetActive(true);
         Pause();
     }
     public void CloseShop()
     {
+        GetComponent<AudioSource>().enabled = true ;
         print("click");
         ShopPanel.SetActive(false);
         Pause();
