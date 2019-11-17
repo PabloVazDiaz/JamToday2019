@@ -10,12 +10,11 @@ public class PlayerController : MonoBehaviour
 
     bool isInvulnerable;
     Rigidbody2D rb;
-    public float speed;
+    public float speed = 3;
     public int health = 1;
     // Start is called before the first frame update
     void Start()
     {
-        //GameController.instance.UpdateLifeCanvas();
         rb = GetComponent<Rigidbody2D>();
         if (PlayerController.instance == null)
         {
@@ -25,6 +24,10 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(this);
         }
+        PlayerController.instance.health= health;
+        PlayerController.instance.speed = speed;
+        GameController.instance.UpdateLifeCanvas();
+        GameController.instance.UpdateSpeedCanvas();
     }
 
     // Update is called once per frame
@@ -36,7 +39,7 @@ public class PlayerController : MonoBehaviour
     internal void Move(float horizontalAxis, float verticalAxis)
     {
         Vector2 Movement = new Vector2(horizontalAxis, verticalAxis);
-        rb.MovePosition(rb.position + Movement * speed * Time.deltaTime);
+        rb.MovePosition(rb.position + Movement * PlayerController.instance.speed * Time.deltaTime);
 
     }
 
@@ -51,10 +54,10 @@ public class PlayerController : MonoBehaviour
     {
         if (isInvulnerable)
             return;
-        health -= damage;
+        PlayerController.instance.health -= damage;
         GameController.instance.UpdateLifeCanvas();
         BeInvulnerable();
-        if (health <= 0)
+        if (PlayerController.instance.health <= 0)
         {
             Destroy(this.gameObject);
             //GameController.instance.GameOver();

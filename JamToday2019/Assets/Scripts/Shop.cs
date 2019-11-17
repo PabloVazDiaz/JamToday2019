@@ -37,19 +37,21 @@ public class Shop : MonoBehaviour
 
     public void BuySpeed()
     {
-        if (PlayerController.instance.speed < 6)
+        if (PlayerController.instance.speed < 12)
         {
-            PlayerController.instance.health += 1;
+            PlayerController.instance.speed += 2;
             GameController.instance.plastic += SpeedPrice;
+            GameController.instance.UpdateSpeedCanvas();
         }
     }
 
     public void SellSpeed()
     {
-        if (PlayerController.instance.speed > 1)
+        if (PlayerController.instance.speed > 2)
         {
-            PlayerController.instance.speed -= 1;
+            PlayerController.instance.speed -= 2;
             GameController.instance.plastic -= SpeedPrice;
+            GameController.instance.UpdateSpeedCanvas();
         }
     }
 }

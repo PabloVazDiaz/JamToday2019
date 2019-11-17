@@ -153,7 +153,7 @@ MonoBehaviour:
   reuse: 0
   explosionArea: 40
   apperture: 20
-  Delay: 0.8
+  Delay: 0.2
 --- !u!70 &4083711362419423566
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

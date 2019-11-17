@@ -15,8 +15,8 @@ public class GameController : MonoBehaviour
     public GameObject ShopPanel;
     private bool paused = false;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         if (GameController.instance == null)
         {
@@ -26,6 +26,11 @@ public class GameController : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
         LoadLevel(0);
         OpenShop();
     }
@@ -64,7 +69,6 @@ public class GameController : MonoBehaviour
     }
 
     public List<Image> hearts = new List<Image>();
-    public GameObject heartPanel;
     public void UpdateLifeCanvas()
     {
         foreach (Image sprite in hearts)
@@ -76,6 +80,20 @@ public class GameController : MonoBehaviour
             hearts[i].gameObject.SetActive(true);
         }
     }
+
+    public List<Image> lighting = new List<Image>();
+    public void UpdateSpeedCanvas()
+    {
+        foreach (Image sprite in lighting)
+        {
+            sprite.gameObject.SetActive(false);
+        }
+        for (int i = 0; i < PlayerController.instance.speed/2; i++)
+        {
+            lighting[i].gameObject.SetActive(true);
+        }
+    }
+
     internal void Pause()
     {
         
@@ -99,6 +117,7 @@ public class GameController : MonoBehaviour
     }
     public void CloseShop()
     {
+        print("click");
         ShopPanel.SetActive(false);
         Pause();
     }
