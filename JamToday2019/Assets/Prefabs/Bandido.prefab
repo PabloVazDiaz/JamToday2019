@@ -47,7 +47,6 @@ GameObject:
   - component: {fileID: -5098642164703332660}
   - component: {fileID: -7955215243089175113}
   - component: {fileID: 1968119748}
-  - component: {fileID: 4484726518389663592}
   m_Layer: 0
   m_Name: Bandido
   m_TagString: Enemy
@@ -261,7 +260,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
-  endReachedDistance: 12
+  endReachedDistance: 2.68
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -281,20 +280,4 @@ MonoBehaviour:
   projectiles:
   - {fileID: 5418526199069297276, guid: b00174c9b31d4ac4a9105daf436eeaf7, type: 3}
   FirePoint: {fileID: 539636559}
-  ShootCoolDown: 2
---- !u!114 &4484726518389663592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837488136898972443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b02b550d55a5c4b9d12c042c4ffc69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectiles:
-  - {fileID: 5418526199069297276, guid: e91e30478c29ee64d805ce6b14ae376d, type: 3}
-  FirePoint: {fileID: 539636559}
-  ShootCoolDown: 2
+  ShootCoolDown: 1.5

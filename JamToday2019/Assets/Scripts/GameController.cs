@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public float plastic;
+    public static float plastic;
     public int LevelNumber = 1;
     public List<LevelData> levels;
     public List<GameObject> enemies;
@@ -34,19 +34,19 @@ public class GameController : MonoBehaviour
     void Start()
     {
         
-        LoadLevel(GameController.instance.LevelNumber-1);
         OpenShop();
+        LoadLevel(GameController.instance.LevelNumber-1);
     }
 
     internal void Victory()
     {
-        //throw new NotImplementedException();
+        SceneManager.LoadSceneAsync(4);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(enemies.Count <= 0)
+        if (enemies.Count <= 0 && SceneManager.GetActiveScene().buildIndex != 3) 
         {
             NextLevel();
         }
@@ -58,19 +58,21 @@ public class GameController : MonoBehaviour
         if(GameController.instance.LevelNumber <= GameController.instance.levels.Count)
         {
             GameController.instance.LevelNumber++;
-            SceneManager.LoadSceneAsync(GameController.instance.LevelNumber);
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         }
        // throw new NotImplementedException();
     }
 
     public void LoadLevel(int LevelIndex)
     {
-        
+        /*
         if (LevelIndex >= levels.Count)
             Victory();
+            */
         List<GameObject> SpawnPoints = new List<GameObject>();
         SpawnPoints.AddRange(GameObject.FindGameObjectsWithTag("SpawnPoint"));
         LevelData Data = levels[LevelIndex];
+        
         foreach (Enemy enemy in Data.Enemies)
         {
             GameObject go = Instantiate(enemy.gameObject, SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count)].transform);

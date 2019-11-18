@@ -15,7 +15,7 @@ public class Shop : MonoBehaviour
         if (PlayerController.instance.health < 6)
         {
             PlayerController.instance.health += 1;
-            GameController.instance.plastic += HealthPrice;
+            GameController.plastic += HealthPrice;
             GameController.instance.UpdateLifeCanvas();
         }
     }
@@ -25,7 +25,7 @@ public class Shop : MonoBehaviour
         if (PlayerController.instance.health > 1)
         {
             PlayerController.instance.health -= 1;
-            GameController.instance.plastic -= HealthPrice;
+            GameController.plastic -= HealthPrice;
             GameController.instance.UpdateLifeCanvas();
         }
     }
@@ -40,7 +40,7 @@ public class Shop : MonoBehaviour
         if (PlayerController.instance.speed < 12)
         {
             PlayerController.instance.speed += 2;
-            GameController.instance.plastic += SpeedPrice;
+            GameController.plastic += SpeedPrice;
             GameController.instance.UpdateSpeedCanvas();
         }
     }
@@ -50,7 +50,7 @@ public class Shop : MonoBehaviour
         if (PlayerController.instance.speed > 2)
         {
             PlayerController.instance.speed -= 2;
-            GameController.instance.plastic -= SpeedPrice;
+            GameController.plastic -= SpeedPrice;
             GameController.instance.UpdateSpeedCanvas();
         }
     } 
@@ -65,7 +65,7 @@ public class Shop : MonoBehaviour
         {
             PlayerController.instance.ShootCD -= 0.35f;
             PlayerController.instance.ShootCDBuys += 1;
-            GameController.instance.plastic += CDPrice;
+            GameController.plastic += CDPrice;
             GameController.instance.UpdateCDCanvas();
         }
     }
@@ -76,7 +76,7 @@ public class Shop : MonoBehaviour
         {
             PlayerController.instance.ShootCD += 0.35f;
             PlayerController.instance.ShootCDBuys -= 1;
-            GameController.instance.plastic += CDPrice;
+            GameController.plastic += CDPrice;
             GameController.instance.UpdateCDCanvas();
         }
     }

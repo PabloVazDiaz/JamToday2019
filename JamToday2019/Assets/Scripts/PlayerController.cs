@@ -53,6 +53,11 @@ public class PlayerController : MonoBehaviour
     internal void Move(float horizontalAxis, float verticalAxis)
     {
         Vector2 Movement = new Vector2(horizontalAxis, verticalAxis);
+        if(Movement== Vector2.zero)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
         rb.MovePosition(rb.position + Movement * PlayerController.instance.speed * Time.deltaTime);
 
     }
@@ -74,7 +79,7 @@ public class PlayerController : MonoBehaviour
         if (PlayerController.instance.health <= 0)
         {
             Destroy(this.gameObject);
-            //GameController.instance.GameOver();
+            GameController.instance.GameOver();
         }
     }
 

@@ -209,6 +209,8 @@ MonoBehaviour:
   Boss: 0
   BossHealth: {fileID: 0}
   Child: {fileID: 0}
+  enemiesToSpawn: []
+  SpawnPoints: []
 --- !u!50 &8879156961754723840
 Rigidbody2D:
   serializedVersion: 4
@@ -276,7 +278,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 3
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

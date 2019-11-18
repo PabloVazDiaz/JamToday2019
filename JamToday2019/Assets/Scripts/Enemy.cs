@@ -26,13 +26,14 @@ public class Enemy : MonoBehaviour
         HitPoints = InitialHitPoints;
         if (Boss)
         {
+            HitPoints += GameController.plastic / 180;
+            InitialHitPoints = HitPoints;
             BossHealth = GameController.instance.HealthBoss.GetComponent<Image>();
             BossHealth.gameObject.SetActive(true);
-            HitPoints += GameController.instance.plastic / 100;
             Shooting[] shooters = GetComponentsInChildren<Shooting>();
             foreach (Shooting shooter in shooters)
             {
-                shooter.ShootCoolDown -= Mathf.Clamp01(GameController.instance.plastic * 0.01f);
+                shooter.ShootCoolDown -= Mathf.Clamp01(GameController.plastic * 0.00015f);
             }
         }
         TargetPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -101,5 +102,9 @@ public class Enemy : MonoBehaviour
     {
         GameController.instance.enemies.Remove( (this.gameObject));
         Destroy(this.gameObject);
+        if (Boss)
+        {
+            GameController.instance.Victory();
+        }
     }
 }

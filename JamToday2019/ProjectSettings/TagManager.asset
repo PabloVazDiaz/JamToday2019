@@ -8,6 +8,7 @@ TagManager:
   - SpawnPoint
   - AttackZone
   - Shield
+  - Bullet
   layers:
   - Default
   - TransparentFX

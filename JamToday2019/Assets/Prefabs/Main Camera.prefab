@@ -105,6 +105,7 @@ MonoBehaviour:
   enemies: []
   PausePanel: {fileID: 0}
   ShopPanel: {fileID: 0}
+  HealthBoss: {fileID: 0}
   hearts:
   - {fileID: 0}
   - {fileID: 0}
@@ -126,6 +127,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  GameOverScreen: {fileID: 0}
 --- !u!114 &519420033
 MonoBehaviour:
   m_ObjectHideFlags: 0
