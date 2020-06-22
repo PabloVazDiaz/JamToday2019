@@ -17,6 +17,7 @@ public class Projectile : MonoBehaviour
     public int damage;
     public float speed;
     public float reuse;
+    public float force;
     public float explosionArea = 40f;
     public float apperture = 0;
     public float Delay = 0;
@@ -48,8 +49,12 @@ public class Projectile : MonoBehaviour
         {
             if (collision.tag == "Enemy")
             {
+                /*
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
                 enemy?.ReceiveDamage(damage);
+                */
+                Health health = collision.gameObject.GetComponent<Health>();
+                health.TakeDamage(gameObject, damage);
             }
         }
         if(target == Target.Player)
