@@ -8,34 +8,12 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public  PlayerController TargetPlayer;
-    public float InitialHitPoints = 1;
+    PlayerController TargetPlayer;
     public Sprite damagedSprite;
-    public float HitPoints = 1;
-    public int AttackDamage = 1;
-    public bool Boss;
-    public Image BossHealth;
-    private bool isInvencible=false;
-    public GameObject Child;
-    Sprite originalSprite;
 
     // Start is called before the first frame update
     void Start()
     {
-        originalSprite = GetComponentInChildren<SpriteRenderer>().sprite;
-        HitPoints = InitialHitPoints;
-        if (Boss)
-        {
-            HitPoints += GameController.plastic / 180;
-            InitialHitPoints = HitPoints;
-            BossHealth = GameController.instance.HealthBoss.GetComponent<Image>();
-            BossHealth.gameObject.SetActive(true);
-            Shooting[] shooters = GetComponentsInChildren<Shooting>();
-            foreach (Shooting shooter in shooters)
-            {
-                shooter.ShootCoolDown -= Mathf.Clamp01(GameController.plastic * 0.00015f);
-            }
-        }
         TargetPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if(GetComponent<AIDestinationSetter>()!=null)
             GetComponent<AIDestinationSetter>().target = TargetPlayer.transform;
@@ -56,6 +34,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {
        // transform.LookAt(TargetPlayer.transform.position, transform.forward);
+       //Check distance and attack if possible
+
     }
     /*
     public virtual void ReceiveDamage(int damage)

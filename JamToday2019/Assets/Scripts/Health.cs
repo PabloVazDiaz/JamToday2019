@@ -13,6 +13,8 @@ public class Health : MonoBehaviour
     [SerializeField]
     float weight = 1;
 
+    [SerializeField]
+    GameObject[] SummonsOnDie;
     
     public event Action onDie;
 
@@ -21,7 +23,6 @@ public class Health : MonoBehaviour
         hitPoints = maxHitPoints;
         
     }
-
     
     public void TakeDamage(GameObject instigator, float damage)
     {
@@ -42,6 +43,14 @@ public class Health : MonoBehaviour
     private void Die()
     {
         onDie?.Invoke();
+        if (SummonsOnDie != null)
+        {
+            foreach (GameObject go in SummonsOnDie)
+            {
+                Instantiate(go, transform);
+                go.transform.parent = null;
+            }
+        }
         Destroy(gameObject);
     }
 }

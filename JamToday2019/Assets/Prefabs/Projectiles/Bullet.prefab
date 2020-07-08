@@ -152,7 +152,7 @@ MonoBehaviour:
   damage: 1
   speed: 20
   reuse: 0
-  force: 0
+  force: 1.25
   explosionArea: 0
   apperture: 0
   Delay: 0
