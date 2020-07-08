@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
         TargetPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if(GetComponent<AIDestinationSetter>()!=null)
             GetComponent<AIDestinationSetter>().target = TargetPlayer.transform;
-
+        GetComponent<Fighter>().target = TargetPlayer.gameObject.GetComponent<Health>();
     }
 
  

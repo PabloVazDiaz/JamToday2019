@@ -13,7 +13,7 @@ public class PlayerInput : MonoBehaviour
     public Transform FirePoint;
     public Camera cam;
     public Projectile projectile;
-    
+    private Animator animator;
 
     Vector2 camPos;
 
@@ -21,6 +21,7 @@ public class PlayerInput : MonoBehaviour
     void Start()
     {
         playerMovement = GetComponent<PlayerController>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -28,10 +29,14 @@ public class PlayerInput : MonoBehaviour
     {
         HorizontalAxis = Input.GetAxisRaw("Horizontal");
         VerticalAxis = Input.GetAxisRaw("Vertical");
-        if(VerticalAxis==0&& HorizontalAxis ==0)
+        if(VerticalAxis == 0 && HorizontalAxis == 0)
         {
             playerMovement.Move(0,0);
         }
+        animator.SetFloat("Horizontal", HorizontalAxis);
+        animator.SetFloat("Vertical", VerticalAxis);
+        var speed = Mathf.Abs(HorizontalAxis + VerticalAxis);
+        animator.SetFloat("Speed", speed);
         //print($"Horizontal= {HorizontalAxis}, vertical = {VerticalAxis}");
         camPos = cam.ScreenToWorldPoint(Input.mousePosition);
         timeLastShoot += Time.deltaTime;
