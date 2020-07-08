@@ -8,6 +8,7 @@ public class MeleeAtack : MonoBehaviour
     Enemy enemy;
     public Sprite[] attackSprites;
     Sprite originalSprite;
+    int attackDamage;
     private void Start()
     {
         enemy = GetComponentInParent<Enemy>();
@@ -19,7 +20,7 @@ public class MeleeAtack : MonoBehaviour
         {
             StartCoroutine(AtackAnimation());
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-            player?.GetDamaged(enemy.AttackDamage);
+            player?.GetDamaged(attackDamage);
         }
     }
 

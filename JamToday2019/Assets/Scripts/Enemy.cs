@@ -17,18 +17,10 @@ public class Enemy : MonoBehaviour
         TargetPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if(GetComponent<AIDestinationSetter>()!=null)
             GetComponent<AIDestinationSetter>().target = TargetPlayer.transform;
-        if (Child != null) 
-            GetComponent<Health>().onDie += SummondChilds;
+
     }
 
-    private void SummondChilds()
-    {
-        for (int i = 0; i < 2; i++)
-        {
-            GameObject go = Instantiate(Child, transform.position, transform.rotation);
-            go.transform.parent = null;
-        }
-    }
+ 
 
     // Update is called once per frame
     void Update()

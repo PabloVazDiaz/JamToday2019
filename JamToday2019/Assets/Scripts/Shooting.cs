@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
     public Projectile[] projectiles;
     public Transform FirePoint;
     public float ShootCoolDown;
-
+    int attackDamage;
     private float TimeLastShoot = 0;
 
     // Start is called before the first frame update
@@ -41,7 +41,7 @@ public class Shooting : MonoBehaviour
             GameObject bullet = Instantiate(projectile.gameObject, FirePoint.position, FirePoint.rotation);
             bullet.transform.Rotate(bullet.transform.forward, UnityEngine.Random.Range(-bullet.GetComponent<Projectile>().apperture, bullet.GetComponent<Projectile>().apperture));
             bullet.GetComponent<Rigidbody2D>().AddForce(bullet.transform.up * projectile.speed, ForceMode2D.Impulse);
-            bullet.GetComponent<Projectile>().damage = enemy.AttackDamage;
+            bullet.GetComponent<Projectile>().damage = attackDamage;
         }
 
     }
