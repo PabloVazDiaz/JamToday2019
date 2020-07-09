@@ -116,6 +116,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -201,16 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f97c2047f7092458571995816c82dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetPlayer: {fileID: 0}
-  InitialHitPoints: 3
   damagedSprite: {fileID: 21300000, guid: c82774d3aba1028488087d3bef8773d5, type: 3}
-  HitPoints: 3
-  AttackDamage: 1
-  Boss: 0
-  BossHealth: {fileID: 0}
-  Child: {fileID: 4315321760655819749, guid: d3ff08b26f1a01142983f304937056a5, type: 3}
-  enemiesToSpawn: []
-  SpawnPoints: []
 --- !u!50 &8879156961754723840
 Rigidbody2D:
   serializedVersion: 4

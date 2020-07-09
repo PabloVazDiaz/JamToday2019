@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
     {
         hitPoints = Mathf.Max(hitPoints - damage, 0);
         //Sound effect?
-
+        print(transform.name + " got hit");
         Knockback(instigator);
         if (hitPoints <= 0)
             Die();

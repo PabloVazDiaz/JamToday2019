@@ -19,8 +19,8 @@ public class MeleeAtack : MonoBehaviour
         if (collision.tag == "Player")
         {
             StartCoroutine(AtackAnimation());
-            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-            player?.GetDamaged(attackDamage);
+            Health target = collision.gameObject.GetComponent<Health>();
+            target?.TakeDamage(gameObject, attackDamage);
         }
     }
 

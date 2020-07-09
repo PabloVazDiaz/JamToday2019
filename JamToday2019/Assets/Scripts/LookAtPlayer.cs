@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LookAt : MonoBehaviour
+public class LookAtPlayer : MonoBehaviour
 {
 
     public GameObject Target;
