@@ -43,9 +43,7 @@ public class Fighter : MonoBehaviour
 
     private bool canAttack(Weapon weapon)
     {
-        bool hasAmmo = weapon.Ammo > 0 ? true : false;
-        
-        return Time.time - weapon.TimeLastFired > weapon.FireCoolDown && hasAmmo ;
+        return Time.time - weapon.TimeLastFired > weapon.FireCoolDown ;
     }
 
 

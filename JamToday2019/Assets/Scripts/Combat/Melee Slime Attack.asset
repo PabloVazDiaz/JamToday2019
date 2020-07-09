@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: Melee Slime Attack
   m_EditorClassIdentifier: 
   FireCoolDown: 1.5
-  TimeLastFired: 27.765478
+  TimeLastFired: 0
   projectileSpeed: 0
-  Damage: 1
+  Damage: 0
+  Ammo: 0
   Range: 2
   Force: 1
+  type: 0
+  projectiles: []
   projectileSprite: {fileID: 0}

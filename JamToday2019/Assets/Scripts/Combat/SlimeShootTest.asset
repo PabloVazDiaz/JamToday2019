@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a283b6c16a9aa5409d7ac5702c33c7b, type: 3}
   m_Name: SlimeShootTest
   m_EditorClassIdentifier: 
-  FireCoolDown: 0
+  FireCoolDown: 1
   TimeLastFired: 0
-  projectileSpeed: 0
-  Damage: 0
-  Range: 0
-  Force: 0
-  type: 0
-  projectiles: []
+  projectileSpeed: 1
+  Damage: 1
+  Ammo: 0
+  Range: 5
+  Force: 1
+  type: 1
+  projectiles:
+  - {fileID: 5418526199069297276, guid: b00174c9b31d4ac4a9105daf436eeaf7, type: 3}
   projectileSprite: {fileID: 0}

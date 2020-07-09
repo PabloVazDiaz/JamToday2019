@@ -395,6 +395,11 @@ PrefabInstance:
       objectReference: {fileID: 491248443}
     - target: {fileID: 4435436134905961781, guid: cf6e5acafb8f39a468fc03110aacc1e4,
         type: 3}
+      propertyPath: AvailableWeapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435436134905961781, guid: cf6e5acafb8f39a468fc03110aacc1e4,
+        type: 3}
       propertyPath: ShootCD
       value: 0
       objectReference: {fileID: 0}
@@ -403,6 +408,12 @@ PrefabInstance:
       propertyPath: speed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4435436134905961781, guid: cf6e5acafb8f39a468fc03110aacc1e4,
+        type: 3}
+      propertyPath: AvailableWeapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: a8b1b1de06f75f840bd35a1f7fbf8cba,
+        type: 2}
     - target: {fileID: 4435436134905961782, guid: cf6e5acafb8f39a468fc03110aacc1e4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12285,6 +12296,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1673140911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673140902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99579299b7f63424d90ae83826f7b522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!212 &2281550147074818678
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12453,8 +12477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99579299b7f63424d90ae83826f7b522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 11400000, guid: c8cd4148ced8ee1439cba1d9a5b9f919, type: 2}
   target: {fileID: 0}
 --- !u!114 &4315321760837323031
 MonoBehaviour:
@@ -12469,6 +12491,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagedSprite: {fileID: 21300000, guid: c82774d3aba1028488087d3bef8773d5, type: 3}
+  weapons:
+  - {fileID: 11400000, guid: c8cd4148ced8ee1439cba1d9a5b9f919, type: 2}
+  - {fileID: 11400000, guid: 509737f8ad1025b45aab28ad07ea01cc, type: 2}
 --- !u!114 &7646418039904469737
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,6 +25,15 @@ public class PlayerController : MonoBehaviour
         fighter = GetComponent<Fighter>();
         CurrentWeapon = AvailableWeapons[0];
         fighter.PrepareWeapons(AvailableWeapons.ToArray());
+        //TODO Better
+        WeaponsAmmo = new Dictionary<Weapon, int>();
+        foreach (Weapon weapon in AvailableWeapons)
+        {
+            WeaponsAmmo.Add(weapon, 10);
+        }
+
+
+
         rb = GetComponent<Rigidbody2D>();
         if (PlayerController.instance == null)
         {
@@ -115,7 +124,11 @@ public class PlayerController : MonoBehaviour
 
     public void Fire()
     {
-        fighter.AttackBehaviour(CurrentWeapon);
+        if (WeaponsAmmo[CurrentWeapon] > 0)
+        {
+            fighter.AttackBehaviour(CurrentWeapon);
+            WeaponsAmmo[CurrentWeapon]--;
+        }
     }
 
     public void NextWeapon()
