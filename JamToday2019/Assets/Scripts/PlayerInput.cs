@@ -38,6 +38,10 @@ public class PlayerInput : MonoBehaviour
         var speed = Mathf.Abs(HorizontalAxis + VerticalAxis);
         animator.SetFloat("Speed", speed);
         camPos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        animator.SetFloat("HorizontalLook", Mathf.Clamp(transform.position.x - camPos.x, -1, 1));
+        animator.SetFloat("VerticalLook", Mathf.Clamp(transform.position.y - camPos.y, -1, 1));
+
         timeLastShoot += Time.deltaTime;
         isAbleToFire = (timeLastShoot > PlayerController.instance.ShootCD);
         if (Input.GetButtonDown("Fire1") && isAbleToFire)
@@ -66,6 +70,7 @@ public class PlayerInput : MonoBehaviour
     private void FixedUpdate()
     {
         PlayerController.Move(HorizontalAxis, VerticalAxis);
+        //
         PlayerController.Rotate(camPos);
 
     }
