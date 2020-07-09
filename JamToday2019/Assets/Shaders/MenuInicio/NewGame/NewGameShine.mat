@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NewGameShine
+  m_Shader: {fileID: -6465566751694194690, guid: 392f98b528a09c44e87830a3977643e4,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_19417DAF:
+        m_Texture: {fileID: 2800000, guid: 56cc2138f71013a4d97fe88fc5997480, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_370047B5:
+        m_Texture: {fileID: 2800000, guid: e1d46c5aa2c0bc74e863b0b9217f6a84, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emission:
+        m_Texture: {fileID: 2800000, guid: 815a7eed6dc40ae449fd0ba8d3a3db24, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_1D0C2E37: 0
+    - Vector1_6B18A185: 2
+    - Vector1_AB44A2A5: 11.1
+    - Vector1_C57EAACC: 4.3
+    - _Click: 1
+    - _Slider: 0
+    m_Colors:
+    - Color_A0DAA288: {r: 0.1489811, g: 0.682353, b: 0, a: 0}
+    - Color_F1F451E8: {r: 0.1372549, g: 0.6313726, b: 0, a: 1}
+    - Vector2_93E65D23: {r: -1.5, g: 0, b: 0, a: 0}
+    - _NoiseSpeed: {r: 0.8, g: 0.5, b: 0, a: 0}
