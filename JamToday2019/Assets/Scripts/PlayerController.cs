@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -14,9 +15,16 @@ public class PlayerController : MonoBehaviour
     public int health = 1;
     public float ShootCD=2;
     public int ShootCDBuys = 1;
+    public List<Weapon> AvailableWeapons;
+    public Dictionary<Weapon, int> WeaponsAmmo;
+    private Weapon CurrentWeapon;
+    private Fighter fighter;
     // Start is called before the first frame update
     void Start()
     {
+        fighter = GetComponent<Fighter>();
+        CurrentWeapon = AvailableWeapons[0];
+        fighter.PrepareWeapons(AvailableWeapons.ToArray());
         rb = GetComponent<Rigidbody2D>();
         if (PlayerController.instance == null)
         {
@@ -26,6 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(this);
         }
+        
         PlayerController.instance.health= health;
         PlayerController.instance.speed = speed;
         PlayerController.instance.ShootCD = ShootCD;
@@ -53,7 +62,7 @@ public class PlayerController : MonoBehaviour
     internal void Move(float horizontalAxis, float verticalAxis)
     {
         Vector2 Movement = new Vector2(horizontalAxis, verticalAxis);
-        if(Movement== Vector2.zero)
+        if(Movement == Vector2.zero)
         {
             rb.velocity = Vector2.zero;
             return;
@@ -102,5 +111,23 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
         }
         isInvulnerable = false;
+    }
+
+    public void Fire()
+    {
+        fighter.AttackBehaviour(CurrentWeapon);
+    }
+
+    public void NextWeapon()
+    {
+        CurrentWeapon = AvailableWeapons.ElementAtOrDefault(AvailableWeapons.IndexOf(CurrentWeapon) + 1);
+        if (CurrentWeapon == null)
+            CurrentWeapon = AvailableWeapons[0];
+    }
+    public void PreviousWeapon()
+    {
+        CurrentWeapon = AvailableWeapons.ElementAtOrDefault(AvailableWeapons.IndexOf(CurrentWeapon) - 1);
+        if (CurrentWeapon == null)
+            CurrentWeapon = AvailableWeapons[AvailableWeapons.Count];
     }
 }

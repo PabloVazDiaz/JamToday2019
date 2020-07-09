@@ -60,7 +60,6 @@ public class GameController : MonoBehaviour
             GameController.instance.LevelNumber++;
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         }
-       // throw new NotImplementedException();
     }
 
     public void LoadLevel(int LevelIndex)
@@ -110,7 +109,7 @@ public class GameController : MonoBehaviour
     {
         foreach (Image sprite in bullets)
         {
-            sprite.gameObject.SetActive(false);
+            sprite?.gameObject.SetActive(false);
         }
         for (int i = 0; i < PlayerController.instance.ShootCDBuys; i++)
         {

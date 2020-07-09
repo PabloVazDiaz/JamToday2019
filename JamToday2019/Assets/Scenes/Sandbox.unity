@@ -12263,7 +12263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b6787ac31cb1a4b8777bbc1b58a03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoints: 1
+  maxHitPoints: 50
   weight: 1
   SummonsOnDie: []
 --- !u!95 &1673140910

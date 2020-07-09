@@ -20,7 +20,7 @@ public class MeleeAtack : MonoBehaviour
         {
             StartCoroutine(AtackAnimation());
             Health target = collision.gameObject.GetComponent<Health>();
-            target?.TakeDamage(gameObject, attackDamage);
+            target?.TakeDamage(gameObject, attackDamage, 2);
         }
     }
 

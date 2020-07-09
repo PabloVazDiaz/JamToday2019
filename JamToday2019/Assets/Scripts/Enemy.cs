@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
 {
     PlayerController TargetPlayer;
     public Sprite damagedSprite;
+    private Fighter fighter;
+    public Weapon[] weapons;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,10 @@ public class Enemy : MonoBehaviour
         TargetPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if(GetComponent<AIDestinationSetter>()!=null)
             GetComponent<AIDestinationSetter>().target = TargetPlayer.transform;
-        GetComponent<Fighter>().target = TargetPlayer.gameObject.GetComponent<Health>();
+        fighter = GetComponent<Fighter>();
+        fighter.target = TargetPlayer.gameObject.GetComponent<Health>();
+        fighter.PrepareWeapons(weapons);
+        
     }
 
  
@@ -25,10 +30,14 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // transform.LookAt(TargetPlayer.transform.position, transform.forward);
-       //Check distance and attack if possible
+        foreach (Weapon weapon in weapons)
+        {
+            fighter.AttackBehaviour(weapon);
+        }
+    // transform.LookAt(TargetPlayer.transform.position, transform.forward);
+    //Check distance and attack if possible
 
-    }
+}
     /*
     public virtual void ReceiveDamage(int damage)
     {

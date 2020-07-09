@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a283b6c16a9aa5409d7ac5702c33c7b, type: 3}
-  m_Name: Melee Slime Attack
+  m_Name: SlimeShootTest
   m_EditorClassIdentifier: 
-  FireCoolDown: 1.5
-  TimeLastFired: 27.765478
+  FireCoolDown: 0
+  TimeLastFired: 0
   projectileSpeed: 0
-  Damage: 1
-  Range: 2
-  Force: 1
+  Damage: 0
+  Range: 0
+  Force: 0
+  type: 0
+  projectiles: []
   projectileSprite: {fileID: 0}

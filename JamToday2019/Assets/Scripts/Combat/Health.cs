@@ -24,19 +24,19 @@ public class Health : MonoBehaviour
         
     }
     
-    public void TakeDamage(GameObject instigator, float damage)
+    public void TakeDamage(GameObject instigator, float damage, float force)
     {
         hitPoints = Mathf.Max(hitPoints - damage, 0);
         //Sound effect?
         print(transform.name + " got hit");
-        Knockback(instigator);
+        Knockback(instigator, force);
         if (hitPoints <= 0)
             Die();
     }
 
-    private void Knockback( GameObject instigator)
+    private void Knockback( GameObject instigator, float force)
     {
-        float hitforce = instigator.GetComponent<Projectile>().force * 1000;
+        float hitforce = force * 1000;
         GetComponent<Rigidbody2D>().AddForce((transform.position - instigator.transform.position) * hitforce / weight);
     }
 

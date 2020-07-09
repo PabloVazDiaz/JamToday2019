@@ -9,7 +9,7 @@ public class PlayerInput : MonoBehaviour
     private bool isAbleToFire = true;
     private float HorizontalAxis;
     private float VerticalAxis;
-    private PlayerController playerMovement;
+    private PlayerController PlayerController;
     public Transform FirePoint;
     public Camera cam;
     public Projectile projectile;
@@ -20,7 +20,7 @@ public class PlayerInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerMovement = GetComponent<PlayerController>();
+        PlayerController = GetComponent<PlayerController>();
         animator = GetComponent<Animator>();
     }
 
@@ -31,13 +31,12 @@ public class PlayerInput : MonoBehaviour
         VerticalAxis = Input.GetAxisRaw("Vertical");
         if(VerticalAxis == 0 && HorizontalAxis == 0)
         {
-            playerMovement.Move(0,0);
+            PlayerController.Move(0,0);
         }
         animator.SetFloat("Horizontal", HorizontalAxis);
         animator.SetFloat("Vertical", VerticalAxis);
         var speed = Mathf.Abs(HorizontalAxis + VerticalAxis);
         animator.SetFloat("Speed", speed);
-        //print($"Horizontal= {HorizontalAxis}, vertical = {VerticalAxis}");
         camPos = cam.ScreenToWorldPoint(Input.mousePosition);
         timeLastShoot += Time.deltaTime;
         isAbleToFire = (timeLastShoot > PlayerController.instance.ShootCD);
@@ -54,18 +53,20 @@ public class PlayerInput : MonoBehaviour
 
     private void Fire()
     {
+        PlayerController.Fire();
+        /*
         timeLastShoot = 0;
         GameObject bullet =Instantiate(projectile.gameObject, FirePoint.position, FirePoint.rotation);
 
         bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.up * projectile.speed, ForceMode2D.Impulse);
-
+        */
 
     }
 
     private void FixedUpdate()
     {
-        playerMovement.Move(HorizontalAxis, VerticalAxis);
-        playerMovement.Rotate(camPos);
+        PlayerController.Move(HorizontalAxis, VerticalAxis);
+        PlayerController.Rotate(camPos);
 
     }
 }

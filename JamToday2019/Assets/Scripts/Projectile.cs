@@ -54,7 +54,7 @@ public class Projectile : MonoBehaviour
                 enemy?.ReceiveDamage(damage);
                 */
                 Health health = collision.gameObject.GetComponent<Health>();
-                health.TakeDamage(gameObject, damage);
+                health.TakeDamage(gameObject, damage, force);
             }
         }
         if(target == Target.Player)
