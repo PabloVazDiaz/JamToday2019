@@ -8,13 +8,14 @@ public class OnPressShader : MonoBehaviour
     Material material;
   
   
-
-
     void Start()
     {
         material = GetComponent<Image>().material;
+
         material.SetFloat("_Slider", 0f);
+
         material.SetFloat("_Click", 0f);
+
     }
 
   public void ActivateShader()
@@ -34,5 +35,6 @@ public class OnPressShader : MonoBehaviour
         material.SetFloat("_Click", 1f);
 
     }
+
 
 }
